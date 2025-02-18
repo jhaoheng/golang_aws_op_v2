@@ -6,17 +6,8 @@
 - https://aws.amazon.com/tw/blogs/contact-center/automating-outbound-calling-to-customers-using-amazon-connect/
 
 
-## 購買電話號碼 (在 Amazon Connect 中購買免費電話號碼（TFN）)
-1.	登入 Amazon Connect 管理主控台。
-2.	選擇你的 Instance，進入「電話號碼（Phone Numbers）」頁面。
-3.	點擊「CLAIM A PHONE NUMBER」（申請電話號碼）。
-4.	選擇以下參數：
-    •	國家/地區：選擇你想要申請電話號碼的國家或地區。
-    •	號碼類型（Type）：選擇 Toll-Free。
-5.	系統會列出可用的 Toll-Free Number，選擇一個並點擊「CLAIM」。
-
-
 # 費用
+> 電話號碼還蠻複雜，有地區限制
 
 ## aws connect 固定費用 (分鐘)
 - 0.018
@@ -32,6 +23,7 @@
 - 環球國際免費電話號碼(UIFN)
     - 通話費用由企業支付
     - 可跨國 (會有跨國際的通話費)
+    - 只能用於 inbound calls only
 
 ## 傳入呼叫 (每分鐘)
 - 有分成 DID, TFN, UIFN 等費率
@@ -44,4 +36,13 @@
 3. 客服轉接給指定部門，花了四分鐘 (轉接一開始就計費，包含對話時間) => 4 * 0.018 (aws connect 服務用量費用)
 4. 使用 電話號碼 => 1天 * N
 5. 傳入呼叫費用 => 7(分鐘) * N
-6. 傳出呼叫費用 => 4(分鐘) * N
+6. 傳出呼叫費用 => 4(分鐘) * N 
+
+
+## 使用一天的相關費用 (api 撥打電話失敗)
+- 雖然有建立 instance，看樣子 instance 並沒有計費
+
+![img](./asserts/img.png)
+
+- [ ] : 所以最好的方式就是，我在日本申請 instance 然後向 support 申請電話號碼，申請完畢後，執行 api 測試即可
+    - 按照官網說明 日本撥打台灣電話是 USD 1.2 元
